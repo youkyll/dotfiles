@@ -1,5 +1,8 @@
 # .bashrc
 
+#invalid ctr+s
+stty stop undef
+
 #git complete
 source ~/dotfiles/bash/git-prompt.sh
 
@@ -31,11 +34,11 @@ alias l1='ls -1'
 alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories
 alias ....='cd ../../..' # Go up three directories
-alias -- -='cd -'        # Go back
+alias --='cd -'        # Go back
 
 # Directory
-alias	md='mkdir -p'
-alias	rd='rmdir'
+alias md='mkdir -p'
+alias rd='rmdir'
 
 #other aliases
 alias t='date'
