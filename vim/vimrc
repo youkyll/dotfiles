@@ -1,12 +1,30 @@
-syntax on
-colorscheme koehler
-let g:molokai_origin = 1
-let g:rehash256 = 1
-set t_Co=256
-set noswapfile
+
+filetype plugin indent on
+
+syntax enable
+
+" key bind
+nnoremap <Space>.  :<C-u>edit $MYVIMRC<Enter>
+nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
+nnoremap <C-h>     :<C-u>help<Space>
+nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter> 
+
+set backspace=eol,indent,start
 set number
 
-"ステータス表示
+" Use case insensitive search, except when using capital letters
+" 検索時に大文字・小文字を区別しない。ただし、検索後に大文字小文字が
+" 混在しているときは区別する
+set ignorecase
+set smartcase
+
+" Display the cursor position on the last line of the screen or in the status
+" line of a window
+" 画面最下行にルーラーを表示する
+set ruler
+  
+" Always display the status line, even if only one window is displayed
+" ステータスラインを常に表示する
 set laststatus=2
 set statusline=%F%r%=%h
 
@@ -17,3 +35,26 @@ set guifont=meiryo:h16:cSHIFTJIS
 set encoding=utf-8
 set fenc=utf-8
 set fileformats=unix,dos,mac
+
+" tab表示幅
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+set softtabstop=0
+
+" plugin setting
+" if has('vim_starting')
+"	  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"  endif
+
+"  call neobundle#rc(expand('~/.vim/bundle/'))
+
+  " Let NeoBundle manage NeoBundle
+  " NeoBundleFetch 'Shougo/neobundle.vim'
+  "
+  " " add plugins
+  "
+  " filetype plugin on
+  "
+  " NeoBundleCheck
+  "
