@@ -12,11 +12,15 @@
 +^h::send,+{left}
 +^l::send,+{right}
 
+;change japanese
+^Space::send,{vk19}
+
 ; delete
 ^g::send,{BS}
-^d::send,{Del}
+;^d::send,{Del}
 
-
+;invalid keys
+CapsLock::Return
 
 ; reload
 #z::
