@@ -9,6 +9,9 @@ nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
 nnoremap <C-h>     :<C-u>help<Space>
 nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter> 
 
+noremap ; :
+noremap ; :
+
 set backspace=eol,indent,start
 set number
 
