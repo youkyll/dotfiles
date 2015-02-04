@@ -1,5 +1,9 @@
 # .bashrc
 
+#env variables
+export PAGER=less
+
+
 #invalid ctr+s
 stty stop undef
 
