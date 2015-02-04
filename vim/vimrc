@@ -8,6 +8,25 @@ nnoremap <Space>.  :<C-u>edit $MYVIMRC<Enter>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
 nnoremap <C-h>     :<C-u>help<Space>
 nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter> 
+" 移動
+nnoremap k   gk
+nnoremap j   gj
+vnoremap k   gk
+vnoremap j   gj
+nnoremap gk  k
+nnoremap gj  j
+vnoremap gk  k
+vnoremap gj  j
+
+";と:を入れ替え
+nnoremap ;  :
+nnoremap :  ;
+vnoremap ;  :
+vnoremap :  ;
+
+" ノーマルモードで空行を入れる
+nnoremap <Space>o  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
+nnoremap <Space>O  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
 set backspace=eol,indent,start
 set number
@@ -22,7 +41,7 @@ set smartcase
 " line of a window
 " 画面最下行にルーラーを表示する
 set ruler
-  
+
 " Always display the status line, even if only one window is displayed
 " ステータスラインを常に表示する
 set laststatus=2
