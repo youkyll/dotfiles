@@ -1,49 +1,108 @@
+" ----------------------------
+" Basic
+" ----------------------------
 
 filetype plugin indent on
-
+" 見やすくシンタックス
 syntax enable
 
-" key bind
-nnoremap <Space>.  :<C-u>edit $MYVIMRC<Enter>
-nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
-nnoremap <C-h>     :<C-u>help<Space>
-nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter> 
+" ----------------------------
+" Rule
+" ----------------------------
 
 noremap ; :
 noremap ; :
 
 set backspace=eol,indent,start
-set number
 
-" Use case insensitive search, except when using capital letters
-" 検索時に大文字・小文字を区別しない。ただし、検索後に大文字小文字が
-" 混在しているときは区別する
+" 行番号をつける :set nonuでなしに
+set number
+" スワップファイルを出力しない
+set noswapfile
+
+
+" 画面最下行にルーラーを表示する
+set ruler
+
+" ステータスラインを常に表示する
+set laststatus=2
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+
+" 検索関連
+set incsearch
+set hlsearch
+" 大小文字を区別しない
 set ignorecase
 set smartcase
 
-" Display the cursor position on the last line of the screen or in the status
-" line of a window
-" 画面最下行にルーラーを表示する
-set ruler
-  
-" Always display the status line, even if only one window is displayed
-" ステータスラインを常に表示する
-set laststatus=2
-set statusline=%F%r%=%h
-
-set incsearch
+" 不可視文字表示設定
 set list
 set listchars=tab:^\ ,trail:~
+
+" string
 set guifont=meiryo:h16:cSHIFTJIS
 set encoding=utf-8
 set fenc=utf-8
 set fileformats=unix,dos,mac
 
-" tab表示幅
+" indent
+set autoindent
+set smartindent
+
+" tab
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
 set softtabstop=0
+
+
+" ----------------------------
+" Mapping
+" ----------------------------
+
+" vimrcを編集しやすくするバインド
+nnoremap <Space>.  :<C-u>edit $MYVIMRC<Enter>
+nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
+
+" ヘルプを呼びやすくするバインド
+nnoremap <C-h>     :<C-u>help<Space>
+nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter> 
+
+" 移動
+nnoremap k   gk
+nnoremap j   gj
+vnoremap k   gk
+vnoremap j   gj
+nnoremap gk  k
+nnoremap gj  j
+vnoremap gk  k
+vnoremap gj  j
+
+" ;と:を入れ替え
+nnoremap ;  :
+nnoremap :  ;
+vnoremap ;  :
+vnoremap :  ;
+
+" ノーマルモードで空行を入れる
+nnoremap <Space>o  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
+nnoremap <Space>O  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+
+" ----------------------------
+" Environment
+" ----------------------------
+
+"クリップボード使用
+set clipboard=unnamed,unnamedplus
+" OSのクリップボードを使用する
+set clipboard=unnamed
+" 挿入モードでCtrl+vを押すとクリップボードの内容を貼り付け
+imap <C-v> <ESC>"*pa
+
+" ----------------------------
+" Plugin
+" ----------------------------
+
 
 " plugin setting
 " if has('vim_starting')
