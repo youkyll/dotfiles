@@ -4,8 +4,8 @@
 export PAGER=less
 
 
-#invalid ctr+s
-stty stop undef
+#invalid ctr+s and ctr+q
+stty -ixon -ixoff
 
 #git complete
 source ~/dotfiles/bash/git-prompt.sh
@@ -38,7 +38,6 @@ alias l1='ls -1'
 alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories
 alias ....='cd ../../..' # Go up three directories
-alias --='cd -'        # Go back
 
 # Directory
 alias md='mkdir -p'
