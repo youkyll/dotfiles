@@ -25,6 +25,8 @@ set ruler
 set laststatus=2
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
+set showcmd
+
 " 検索関連
 set incsearch
 set hlsearch
@@ -62,8 +64,8 @@ nnoremap <Space>.  :<C-u>edit $MYVIMRC<Enter>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
 
 " ヘルプを呼びやすくするバインド
-nnoremap <C-h>     :<C-u>help<Space>
-nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter> 
+nnoremap <Space>h     :<C-u>help<Space>
+nnoremap <Space>H :<C-u>help<Space><C-r><C-w><Enter> 
 
 " 移動
 nnoremap k   gk
@@ -82,8 +84,8 @@ vnoremap ;  :
 vnoremap :  ;
 
 " ノーマルモードで空行を入れる
-nnoremap <Space>o  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
-nnoremap <Space>O  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+nnoremap <NL>  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
+nnoremap <Enter>  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
 " ----------------------------
 " Environment
