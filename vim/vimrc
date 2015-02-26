@@ -21,6 +21,8 @@ set number
 " スワップファイルを出力しない
 set noswapfile
 
+"ビープ音などを無効
+set visualbell t_vb=
 
 " 画面最下行にルーラーを表示する
 set ruler
