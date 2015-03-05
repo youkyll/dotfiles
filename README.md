@@ -1,4 +1,4 @@
-#this is config files
+#dotfiles
 
 ##neo bundleの操作コマンド
 ###インストール
@@ -12,3 +12,5 @@
 ###削除
 
 ```:NeoBundleClean
+
+
