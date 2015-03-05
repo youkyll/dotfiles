@@ -3,14 +3,19 @@
 ##neo bundleの操作コマンド
 ###インストール
 
-```:NeoBundleInstall
+```
+:NeoBundleInstall
+```
 
 ###アップデート
 
-```:NeoBundleUpdate
+```
+:NeoBundleUpdate
+```
 
 ###削除
 
-```:NeoBundleClean
-
+```
+:NeoBundleClean
+```
 
