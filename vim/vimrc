@@ -14,6 +14,9 @@ syntax enable
 " Rule
 " ----------------------------
 
+noremap ; :
+noremap ; :
+
 set backspace=eol,indent,start
 
 " 行番号をつける :set nonuでなしに
