@@ -1,3 +1,7 @@
+
+
+
+
 " ----------------------------
 " Basic
 " ----------------------------
@@ -20,6 +24,8 @@ set number
 " スワップファイルを出力しない
 set noswapfile
 
+"ビープ音などを無効
+set visualbell t_vb=
 
 " 画面最下行にルーラーを表示する
 set ruler
@@ -27,6 +33,8 @@ set ruler
 " ステータスラインを常に表示する
 set laststatus=2
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+
+set showcmd
 
 " 検索関連
 set incsearch
@@ -65,8 +73,8 @@ nnoremap <Space>.  :<C-u>edit $MYVIMRC<Enter>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
 
 " ヘルプを呼びやすくするバインド
-nnoremap <C-h>     :<C-u>help<Space>
-nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter> 
+nnoremap <Space>h     :<C-u>help<Space>
+nnoremap <Space>H :<C-u>help<Space><C-r><C-w><Enter> 
 
 " 移動
 nnoremap k   gk
@@ -84,9 +92,15 @@ nnoremap :  ;
 vnoremap ;  :
 vnoremap :  ;
 
+" 日付入力を簡単に
+inoremap <expr> ,df strftime('%Y-%m-%dT%H:%%M:%S')
+inoremap <expr> ,dd strftime('%Y-%m-%d')
+inoremap <expr> ,dt strftime('%H:%M:%S')
+
+
 " ノーマルモードで空行を入れる
-nnoremap <Space>o  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
-nnoremap <Space>O  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+nnoremap <NL>  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
+nnoremap <Enter>  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
 " ----------------------------
 " Environment
@@ -100,23 +114,37 @@ set clipboard=unnamed
 imap <C-v> <ESC>"*pa
 
 " ----------------------------
-" Plugin
+" Plugin NeoBundle
 " ----------------------------
+"	
+"	set nocompatible
+"	filetype off
+"	
+"	if has('vim_starting')
+"	  set runtimepath+=~/dotfiles/vim/bundle/neobundle.vim
+"	    call neobundle#rc(expand('~/dotfiles/vim/bundle/'))
+"	endif
+"	
+"	" Installation check.
+"	if neobundle#exists_not_installed_bundles()
+"	  echomsg 'Not installed bundles : ' .
+"	    \ string(neobundle#get_not_installed_bundle_names())
+"	  echomsg 'Please execute ":NeoBundleInstall" command.'
+"	endif
+"	
+"	filetype plugin indent on
+"	filetype indent on
+"	syntax on
+"	
+"	" originalrepos on github
+"	NeoBundle 'Shougo/neobundle.vim'
+"	NeoBundle 'Shougo/vimproc'
+"	NeoBundle 'VimClojure'
+"	NeoBundle 'Shougo/vimshell'
+"	NeoBundle 'Shougo/unite.vim'
+"	NeoBundle 'Shougo/neocomplcache'
+"	NeoBundle 'Shougo/neosnippet'
+"	NeoBundle 'jpalardy/vim-slime'
+"	NeoBundle 'scrooloose/syntastic'
+"	"" NeoBundle 'https://bitbucket.org/kovisoft/slimv'
 
-
-" plugin setting
-" if has('vim_starting')
-"	  set runtimepath+=~/.vim/bundle/neobundle.vim/
-"  endif
-
-"  call neobundle#rc(expand('~/.vim/bundle/'))
-
-  " Let NeoBundle manage NeoBundle
-  " NeoBundleFetch 'Shougo/neobundle.vim'
-  "
-  " " add plugins
-  "
-  " filetype plugin on
-  "
-  " NeoBundleCheck
-  "
