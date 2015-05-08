@@ -50,6 +50,7 @@ set listchars=tab:^\ ,trail:~
 " string
 set guifont=meiryo:h16:cSHIFTJIS
 set encoding=utf-8
+set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
 set fenc=utf-8
 set fileformats=unix,dos,mac
 
@@ -102,6 +103,11 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 nnoremap <NL>  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Enter>  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
+" ----------------------------
+" Command
+" ----------------------------
+command! Utf8 edit ++enc=utf-8
+command! Sjis edit ++enc=Shif-jis
 " ----------------------------
 " Environment
 " ----------------------------
