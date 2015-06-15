@@ -16,8 +16,7 @@
 ^Space::send,{vk19}
 
 ; delete
-^g::send,{BS}
-;^d::send,{Del}
+^BackSpace::send,{Delete}
 
 ;invalid keys
 CapsLock::Return
