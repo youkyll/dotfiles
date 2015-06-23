@@ -14,6 +14,9 @@ syntax enable
 " Rule
 " ----------------------------
 
+noremap ; :
+noremap ; :
+
 set backspace=eol,indent,start
 
 " 行番号をつける :set nonuでなしに
@@ -47,6 +50,7 @@ set listchars=tab:^\ ,trail:~
 " string
 set guifont=meiryo:h16:cSHIFTJIS
 set encoding=utf-8
+"set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
 set fenc=utf-8
 set fileformats=unix,dos,mac
 
@@ -100,6 +104,11 @@ nnoremap <NL>  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| e
 nnoremap <Enter>  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
 " ----------------------------
+" Command
+" ----------------------------
+command! Utf8 edit ++enc=utf-8
+command! Sjis edit ++enc=Shif-jis
+" ----------------------------
 " Environment
 " ----------------------------
 
@@ -109,6 +118,21 @@ set clipboard=unnamed,unnamedplus
 set clipboard=unnamed
 " 挿入モードでCtrl+vを押すとクリップボードの内容を貼り付け
 imap <C-v> <ESC>"*pa
+
+" ----------------------------
+" netrw.vim
+" ----------------------------
+
+" netrwは常にtree view
+let g:netrw_liststyle = 3
+" CVSと.で始まるファイルは表示しない
+let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
+" 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
+let g:netrw_altv = 1
+" 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
+let g:netrw_alto = 1
+
+
 
 " ----------------------------
 " Plugin NeoBundle
