@@ -102,8 +102,10 @@ nnoremap <Enter>  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '')
 " ----------------------------
 " Command
 " ----------------------------
+
 command! Utf8 edit ++enc=utf-8
-command! Sjis edit ++enc=Shif-jis
+command! Sjis edit ++enc=Sjis
+
 " ----------------------------
 " Environment
 " ----------------------------
@@ -170,6 +172,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neomru.vim'
 " Fileのツリー表示
 NeoBundle 'scrooloose/nerdtree'
+" ag検索
+NeoBundle 'rking/ag.vim'
 
 " NeoBundle 'https://bitbucket.org/kovisoft/slimv'
 " Refer to |:NeoBundle-examples|.
