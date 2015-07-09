@@ -71,6 +71,7 @@ alias gre='git reset'
 #edit alias
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
 
 #history
 HISTSIZE=10000
