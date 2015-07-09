@@ -1,0 +1,83 @@
+#alias
+
+
+#super user
+alias _="sudo"
+
+#list directory
+alias ls='ls -G'        # Compact view, show colors
+alias la='ls -AF'       # Compact view, show hidden
+alias ll='ls -al'
+alias l='ls -a'
+alias l1='ls -1'
+
+#change directory
+alias ..='cd ..'         # Go up one directory
+alias ...='cd ../..'     # Go up two directories
+alias ....='cd ../../..' # Go up three directories
+
+# Directory
+alias md='mkdir -p'
+alias rd='rmdir'
+
+#other aliases
+alias t='date'
+alias c='clear'
+alias q='exit'
+alias h='history'
+alias s='source'
+
+#git aliases
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gco='git checkout'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --date=relative'
+alias gla='git log --graph --all --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --date=relative'
+alias gsh='git show'
+alias gd='git diff '
+alias gdc='git diff --cached'
+alias gb='git branch'
+alias gmv='git mv'
+alias grm='git rm'
+alias grmc='git rm --cached'
+alias gre='git reset'
+
+#edit alias
+alias bashrc='vim ~/.bashrc'
+alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
+
+
+
+
+autoload -U compinit
+compinit
+
+#allow tab completion in the middle of a word
+setopt COMPLETE_IN_WORD
+
+## keep background processes at full speed
+#setopt NOBGNICE
+## restart running processes on exit
+#setopt HUP
+
+## history
+#setopt APPEND_HISTORY
+## for sharing history between zsh processes
+#setopt INC_APPEND_HISTORY
+#setopt SHARE_HISTORY
+
+## never ever beep ever
+#setopt NO_BEEP
+
+## automatically decide when to page a list of completions
+#LISTMAX=0
+
+## disable mail checking
+#MAILCHECK=0
+
+# autoload -U colors
+#colors
