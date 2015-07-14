@@ -50,6 +50,11 @@ set encoding=utf-8
 set fenc=utf-8
 set fileformats=unix,dos,mac
 
+if has('win32')
+  set termencoding=cp932
+endif
+
+
 " indent
 set autoindent
 set smartindent
