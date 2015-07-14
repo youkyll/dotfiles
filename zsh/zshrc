@@ -1,28 +1,5 @@
-# .bashrc
+#alias
 
-#env variables
-export PAGER=less
-
-
-#invalid ctr+s and ctr+q
-stty -ixon -ixoff
-
-#git complete
-source ~/dotfiles/bash/git-prompt.sh
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
-
-#prompt
-GIT_PS1_SHOWDIRTYSTATE=true
-
-RIGHT='\[\e[$[COLUMNS-$(echo -n " $(__git_ps1)" | wc -c)]C\[\e[0;36m\]$(__git_ps1)\e[\e[$[COLUMNS]D\]'
-MAIN='\[\e[1;32m\]\u[\w]'
-L2="\[\e[1;37m\]\$?\$"
-PS1="${RIGHT}${MAIN}\n${L2} "
-# User specific aliases and functions
 
 #super user
 alias _="sudo"
@@ -73,9 +50,34 @@ alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
 
-#history
-HISTSIZE=10000
-HISTFILESIZE=10000
-HISTTIMEFORMAT='%m/%d %H:%M '
-HISTIGNORE=ls:la:ll:lla:history:h:pwd
-HISTCONTROL=ignoreboth
+
+
+
+autoload -U compinit
+compinit
+
+#allow tab completion in the middle of a word
+setopt COMPLETE_IN_WORD
+
+## keep background processes at full speed
+#setopt NOBGNICE
+## restart running processes on exit
+#setopt HUP
+
+## history
+#setopt APPEND_HISTORY
+## for sharing history between zsh processes
+#setopt INC_APPEND_HISTORY
+#setopt SHARE_HISTORY
+
+## never ever beep ever
+#setopt NO_BEEP
+
+## automatically decide when to page a list of completions
+#LISTMAX=0
+
+## disable mail checking
+#MAILCHECK=0
+
+# autoload -U colors
+#colors
