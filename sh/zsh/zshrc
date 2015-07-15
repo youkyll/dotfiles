@@ -25,7 +25,6 @@ alias t='date'
 alias c='clear'
 alias q='exit'
 alias h='history'
-alias s='source'
 
 #git aliases
 alias g='git'
@@ -49,9 +48,6 @@ alias gre='git reset'
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
-
-
-
 
 autoload -U compinit
 compinit
