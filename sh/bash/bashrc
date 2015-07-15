@@ -79,4 +79,3 @@ HISTFILESIZE=10000
 HISTTIMEFORMAT='%m/%d %H:%M '
 HISTIGNORE=ls:la:ll:lla:history:h:pwd
 HISTCONTROL=ignoreboth
-
