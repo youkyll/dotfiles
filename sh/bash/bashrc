@@ -6,10 +6,12 @@ export PAGER=less
 
 
 #invalid ctr+s and ctr+q
-stty -ixon -ixoff
+if type stty > /dev/null 2>&1; then
+  stty -ixon -ixoff
+fi
 
 #git complete
-. "$0/git-prompt.sh"
+. ~/dotfiles/sh/bash/git-prompt.sh
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
