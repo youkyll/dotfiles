@@ -1,28 +1,4 @@
-# .bashrc
-
-#env variables
-export PAGER=less
-
-
-#invalid ctr+s and ctr+q
-stty -ixon -ixoff
-
-#git complete
-source ~/dotfiles/bash/git-prompt.sh
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
-
-#prompt
-GIT_PS1_SHOWDIRTYSTATE=true
-
-RIGHT='\[\e[$[COLUMNS-$(echo -n " $(__git_ps1)" | wc -c)]C\[\e[0;36m\]$(__git_ps1)\e[\e[$[COLUMNS]D\]'
-MAIN='\[\e[1;32m\]\u[\w]'
-L2="\[\e[1;37m\]\$?\$"
-PS1="${RIGHT}${MAIN}\n${L2} "
-# User specific aliases and functions
+#alias
 
 #super user
 alias _="sudo"
@@ -48,7 +24,6 @@ alias t='date'
 alias c='clear'
 alias q='exit'
 alias h='history'
-alias s='source'
 
 #git aliases
 alias g='git'
@@ -71,11 +46,4 @@ alias gre='git reset'
 #edit alias
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
-
-#history
-HISTSIZE=10000
-HISTFILESIZE=10000
-HISTTIMEFORMAT='%m/%d %H:%M '
-HISTIGNORE=ls:la:ll:lla:history:h:pwd
-HISTCONTROL=ignoreboth
-
+alias zshrc='vim ~/.zshrc'
