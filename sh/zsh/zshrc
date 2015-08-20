@@ -5,8 +5,8 @@ autoload -U compinit
 compinit
 
 # color
-autoload -U color
-color
+autoload -U colors
+colors
 
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
