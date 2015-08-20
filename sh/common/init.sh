@@ -5,7 +5,7 @@ dir="$(cd "$(dirname "${BASH_SOURCE:-$0}")"; pwd)"
 
 # ファイル全読み込み
 for shared in $dir/*; do
-  if [[ $shared =~ init.sh$ ]];then
+  if echo $shared | grep -qE "init.sh$"; then
     continue
   fi
 
