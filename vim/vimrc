@@ -19,6 +19,10 @@ set backspace=eol,indent,start
 set number
 " スワップファイルを出力しない
 set noswapfile
+set nobackup
+
+set showcmd
+set shell=/bin/sh
 
 "ビープ音などを無効
 set visualbell t_vb=
@@ -28,7 +32,14 @@ set ruler
 
 " ステータスラインを常に表示する
 set laststatus=2
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
+
+set modeline
+set modelines=10
+
+set title
+set titleold="Terminal"
+set titlestring=%F
 
 set showcmd
 
@@ -76,7 +87,7 @@ nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
 
 " ヘルプを呼びやすくするバインド
 nnoremap <Space>h     :<C-u>help<Space>
-nnoremap <Space>H :<C-u>help<Space><C-r><C-w><Enter> 
+nnoremap <Space>H :<C-u>help<Space><C-r><C-w><Enter>
 
 " 移動
 nnoremap k   gk
@@ -103,6 +114,11 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 " ノーマルモードで空行を入れる
 nnoremap <NL>  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Enter>  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+
+" tab
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+nnoremap <silent> <S-t> :tabnew<CR>
 
 " ----------------------------
 " Command
@@ -140,12 +156,10 @@ let g:netrw_alto = 1
 " Plugin Mapping
 " ----------------------------
 
+
 " ----------------------------
 " Plugin NeoBundle
 " ----------------------------
-
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
 
 if has('vim_starting')
   if &compatible
@@ -163,9 +177,15 @@ call neobundle#begin(expand('~/dotfiles/vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" My Bundles here:
-
-NeoBundle 'Shougo/vimproc'
+" ----------------------------
+" NeoBundle Package
+" ----------------------------
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-scripts/grep.vim'
+NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
@@ -180,9 +200,47 @@ NeoBundle 'scrooloose/nerdtree'
 " ag検索
 NeoBundle 'rking/ag.vim'
 
-" NeoBundle 'https://bitbucket.org/kovisoft/slimv'
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
+"" Custom bundles
+
+"" Javascript Bundle
+NeoBundle "scrooloose/syntastic"
+
+
+"" HTML Bundle
+NeoBundle 'amirh/HTML-AutoCloseTag'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'mattn/emmet-vim'
+
+
+NeoBundle 'elixir-lang/vim-elixir'
+NeoBundle 'carlosgaldino/elixir-snippets'
+
+
+"" Go Lang Bundle
+NeoBundle "majutsushi/tagbar"
+NeoBundle "fatih/vim-go"
+
+
+"" PHP Bundle
+NeoBundle 'arnaud-lb/vim-php-namespace'
+
+
+"" Ruby Bundle
+NeoBundle "tpope/vim-rails"
+NeoBundle "tpope/vim-rake"
+NeoBundle "tpope/vim-projectionist"
+NeoBundle "thoughtbot/vim-rspec"
+NeoBundle "majutsushi/tagbar"
+NeoBundle "ecomba/vim-ruby-refactoring"
+
+
+
+"" Include user's extra bundle
+if filereadable(expand("~/.vimrc.local.bundles"))
+  source ~/.vimrc.local.bundles
+endif
 
 call neobundle#end()
 
@@ -192,3 +250,9 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+
+"" Include user's local vim config
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
