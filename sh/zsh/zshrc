@@ -1,5 +1,17 @@
 . ~/dotfiles/sh/common/init.sh
 
+# git
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '%s : %F{green}%b%f'
+zstyle ':vcs_info:*' actionformats '%s : %F{green}%b%f(%F{red}%a%f)'
+precmd() { vcs_info }
+
+# prompt
+PROMPT='%F{green}%n@%m%f > %F{cyan}%~%f
+%?%# '
+RPROMPT='${vcs_info_msg_0_}'
+
 # completion
 autoload -U compinit
 compinit
