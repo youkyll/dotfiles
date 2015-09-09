@@ -1,12 +1,15 @@
 # .bashrc
 . ~/dotfiles/sh/common/init.sh
 
+
 #env variables
 export PAGER=less
 
 
 #invalid ctr+s and ctr+q
-stty -ixon -ixoff
+if type stty > /dev/null 2>&1; then
+  stty -ixon -ixoff
+fi
 
 #git complete
 source "$HOME/dotfiles/sh/bash/git-prompt.sh"
