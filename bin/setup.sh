@@ -2,23 +2,23 @@
 
 set_vimrc()
 {
-	vimrc='~/.vimrc'
+	vimrc="$HOME/.vimrc"
 	if [ -e $vimrc -a ! -L $vimrc ]
 	then
 		echo 'mv vimrc'
-		mv $vimrc ~/.vimrc_bu
+		mv ${vimrc} ~/.vimrc_bu
 	elif [ -L $vimrc ]
 	then
 		echo 'already symlink'
 		return 0
 	fi
 
-	ln -s ./vim/vimrc $vimrc
+	ln -s $HOME/dotfiles/vim/vimrc $vimrc
 }
 
 set_bashrc()
 {
-	bashrc='~/.bashrc'
+	bashrc="$HOME/.bashrc"
 	if [ -e $bashrc -a ! -L $bashrc ]
 	then
 		echo 'mv bashrc'
@@ -29,12 +29,12 @@ set_bashrc()
 		return 0
 	fi
 
-	ln -s ./sh/bash/bashrc $bashrc
+	ln -s $HOME/dotfiles/sh/bash/bashrc $bashrc
 }
 
 set_zshrc()
 {
-	zshrc='~/.zshrc'
+	zshrc="$HOME/.zshrc"
 	if [ -e $zshrc -a ! -L $zshrc ]
 	then
 		echo 'mv zshrc'
@@ -45,7 +45,9 @@ set_zshrc()
 		return 0
 	fi
 
-	ln -s ./sh/zsh/zshrc $zshrc
+	ln -s $HOME/dotfiles/sh/zsh/zshrc $zshrc
 }
+
 set_vimrc
 set_bashrc
+set_zshrc

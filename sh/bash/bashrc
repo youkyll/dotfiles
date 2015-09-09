@@ -9,7 +9,7 @@ export PAGER=less
 stty -ixon -ixoff
 
 #git complete
-. "$0/git-prompt.sh"
+source "$HOME/dotfiles/sh/bash/git-prompt.sh"
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
