@@ -35,3 +35,7 @@ HISTFILESIZE=10000
 HISTTIMEFORMAT='%m/%d %H:%M '
 HISTIGNORE=ls:la:ll:lla:history:h:pwd
 HISTCONTROL=ignoreboth
+# enhancd
+if [ -f "/home/imaiyu/.enhancd/bash/enhancd.bash" ]; then
+    source "/home/imaiyu/.enhancd/bash/enhancd.bash"
+fi
