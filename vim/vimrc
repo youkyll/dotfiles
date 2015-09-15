@@ -189,7 +189,6 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
-
 " ----------------------------
 " Plugin NeoBundle
 " ----------------------------
@@ -213,18 +212,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " ----------------------------
 " NeoBundle Package
 " ----------------------------
-NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'itchyny/lightline.vim'
 " File編集履歴管理
 NeoBundle 'Shougo/neomru.vim'
@@ -232,9 +228,6 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
 " ag検索
 NeoBundle 'rking/ag.vim'
-" インデント色付け
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
 
 
 "" Custom bundles
@@ -269,7 +262,6 @@ NeoBundle "tpope/vim-rails"
 NeoBundle "tpope/vim-rake"
 NeoBundle "tpope/vim-projectionist"
 NeoBundle "thoughtbot/vim-rspec"
-NeoBundle "majutsushi/tagbar"
 NeoBundle "ecomba/vim-ruby-refactoring"
 
 
