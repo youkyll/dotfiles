@@ -162,7 +162,9 @@ let g:netrw_alto = 1
 " ----------------------------
 
 let g:vimfiler_as_default_explorer = 1
-
+autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
+autocmd VimEnter * VimFilerBufferDir -split -simple -winwidth=25 -no-quit
+nnoremap <silent> <Space>f :<C-u>VimFilerBufferDir -split -simple -winwidth=25 -toggle -no-quit -nofocus<CR>
 
 " ----------------------------
 " Plugin Mapping
@@ -228,7 +230,6 @@ NeoBundle 'itchyny/lightline.vim'
 " File編集履歴管理
 NeoBundle 'Shougo/neomru.vim'
 " Fileのツリー表示
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/vimfiler'
 " ag検索
 NeoBundle 'rking/ag.vim'
