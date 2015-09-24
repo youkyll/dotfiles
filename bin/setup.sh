@@ -1,4 +1,6 @@
 #/bin/sh
+DOTPATH=~/dotfiles
+GITHUB_URL=https://github.com/youkyll/dotfiles.git
 
 set_rc()
 {
@@ -24,6 +26,19 @@ set_rc()
 	return 0
 }
 
-set_rc .zshrc sh/zsh/zshrc
-set_rc .bashrc sh/bash/bashrc
-set_rc .vimrc vim/vimrc
+is_exists() {
+    which "$1" >/dev/null 2>&1
+    return $?
+}
+
+has() {
+    is_exists "$@"
+}
+
+
+# exec
+
+if has "git"; then
+  git clone --recursive "$GITHUB_URL" "$DOTPATH"
+fi
+
