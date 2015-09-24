@@ -23,7 +23,7 @@ alias rd='rmdir'
 alias t='date'
 alias c='clear'
 alias q='exit'
-alias h='history'
+alias h='history -fd'
 
 #git aliases
 alias g='git'
