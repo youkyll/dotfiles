@@ -35,10 +35,17 @@ has() {
     is_exists "$@"
 }
 
+die() {
+  echo "$1"
+  exit "${2:-1}"
+}
+
 
 # exec
 
 if has "git"; then
   git clone --recursive "$GITHUB_URL" "$DOTPATH"
+else
+  die 'Required git'
 fi
 
