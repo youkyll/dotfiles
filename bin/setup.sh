@@ -43,9 +43,22 @@ die() {
 
 # exec
 
+# install
 if has "git"; then
   git clone --recursive "$GITHUB_URL" "$DOTPATH"
 else
   die 'Required git'
 fi
 
+
+# symlink
+cd $DOTPATH/dots
+if [ $? -ne 0 ]; then
+    die "not found: $DOTPATH"
+fi
+
+
+for f in .??*
+do
+  ln -snfv "$DOTPATH/dots/$f" "$HOME/$f"
+done
