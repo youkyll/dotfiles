@@ -1,53 +1,29 @@
 #/bin/sh
 
-set_vimrc()
+set_rc()
 {
-	vimrc="$HOME/.vimrc"
-	if [ -e $vimrc -a ! -L $vimrc ]
+	if [ $# -ne 2 ]
 	then
-		echo 'mv vimrc'
-		mv ${vimrc} ~/.vimrc_bu
-	elif [ -L $vimrc ]
+	  echo "error: Needs two arguments" 1>&2
+	  return 1
+	fi
+
+
+	rc="$HOME/$1"
+	if [ -e $rc -a ! -L $rc ]
 	then
-		echo 'already symlink'
+		echo "mv orig $1" 
+		mv $rc ${rc}_bu
+	elif [ -L $rc ]
+	then
+		echo "already $1 symlink"
 		return 0
 	fi
 
-	ln -s $HOME/dotfiles/vim/vimrc $vimrc
+	ln -s $HOME/dotfiles/$2 $rc
+	return 0
 }
 
-set_bashrc()
-{
-	bashrc="$HOME/.bashrc"
-	if [ -e $bashrc -a ! -L $bashrc ]
-	then
-		echo 'mv bashrc'
-		mv $bashrc ~/.bashrc_bu
-	elif [ -L $bashrc ]
-	then
-		echo 'already symlink'
-		return 0
-	fi
-
-	ln -s $HOME/dotfiles/sh/bash/bashrc $bashrc
-}
-
-set_zshrc()
-{
-	zshrc="$HOME/.zshrc"
-	if [ -e $zshrc -a ! -L $zshrc ]
-	then
-		echo 'mv zshrc'
-		mv $zshrc ~/.zshrc_bu
-	elif [ -L $zshrc ]
-	then
-		echo 'already symlink'
-		return 0
-	fi
-
-	ln -s $HOME/dotfiles/sh/zsh/zshrc $zshrc
-}
-
-set_vimrc
-set_bashrc
-set_zshrc
+set_rc .zshrc sh/zsh/zshrc
+set_rc .bashrc sh/bash/bashrc
+set_rc .vimrc vim/vimrc
