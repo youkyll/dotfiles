@@ -1,21 +1,9 @@
 #dotfiles
 
-##neo bundleの操作コマンド
-###インストール
+## Installation
 
 ```
-:NeoBundleInstall
+ curl -L raw.github.com/youkyll/dotfiles/master/bin/setup.sh | sh
 ```
 
-###アップデート
-
-```
-:NeoBundleUpdate
-```
-
-###削除
-
-```
-:NeoBundleClean
-```
 
