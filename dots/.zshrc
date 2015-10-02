@@ -35,7 +35,7 @@ export HISTSIZE=1000
 # save in a file
 export SAVEHIST=100000
 
-setopt hist_ignore_dups
+setopt HIST_IGNORE_DUPS
 setopt EXTENDED_HISTORY
 
 setopt APPEND_HISTORY
