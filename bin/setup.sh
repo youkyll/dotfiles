@@ -62,3 +62,7 @@ for f in .??*
 do
   ln -snfv "$DOTPATH/dots/$f" "$HOME/$f"
 done
+
+
+# re login
+exec $SHELL -l
