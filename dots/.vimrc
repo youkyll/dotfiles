@@ -163,6 +163,7 @@ let g:netrw_alto = 1
 
 let g:vimfiler_as_default_explorer = 1
 autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
+" space fでvimfilerをトグル
 nnoremap <silent> <Space>f :<C-u>VimFilerCurrentDir -no-focus -split -simple -winwidth=25 -toggle -no-quit<CR>
 
 " ----------------------------
@@ -208,6 +209,8 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'itchyny/lightline.vim'
 " File編集履歴管理
