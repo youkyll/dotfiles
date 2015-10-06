@@ -6,6 +6,8 @@ filetype plugin indent on
 " 見やすくシンタックス
 syntax enable
 
+let mapleader = "\<Space>"
+
 " ----------------------------
 " Rule
 " ----------------------------
