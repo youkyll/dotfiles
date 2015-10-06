@@ -7,3 +7,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 export PATH="$HOME/local/bin:$PATH"
+
+# golang
+export GOPATH="$HOME/.go"
+export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"

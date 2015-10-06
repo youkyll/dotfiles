@@ -178,6 +178,7 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
+
 " ----------------------------
 " Plugin NeoBundle
 " ----------------------------
@@ -220,6 +221,7 @@ NeoBundle 'Shougo/vimfiler'
 " ag検索
 NeoBundle 'rking/ag.vim'
 
+NeoBundle 'kana/vim-submode'
 
 NeoBundle 'Shougo/vimproc.vim', {
 \'build' : {
@@ -286,3 +288,16 @@ NeoBundleCheck
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+
+
+" window
+
+call submode#enter_with('bufmove', 'n', '', '<C-w>>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', '<C-w><', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', '<C-w>+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', '<C-w>-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
