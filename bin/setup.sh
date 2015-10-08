@@ -1,51 +1,68 @@
 #/bin/sh
+DOTPATH=~/dotfiles
+GITHUB_URL=https://github.com/youkyll/dotfiles.git
 
-set_vimrc()
+set_rc()
 {
-	vimrc='~/.vimrc'
-	if [ -e $vimrc -a ! -L $vimrc ]
+	if [ $# -ne 2 ]
 	then
-		echo 'mv vimrc'
-		mv $vimrc ~/.vimrc_bu
-	elif [ -L $vimrc ]
+	  echo "error: Needs two arguments" 1>&2
+	  return 1
+	fi
+
+
+	rc="$HOME/$1"
+	if [ -e $rc -a ! -L $rc ]
 	then
-		echo 'already symlink'
+		echo "mv orig $1" 
+		mv $rc ${rc}_bu
+	elif [ -L $rc ]
+	then
+		echo "already $1 symlink"
 		return 0
 	fi
 
-	ln -s ./vim/vimrc $vimrc
+	ln -s $HOME/dotfiles/$2 $rc
+	return 0
 }
 
-set_bashrc()
-{
-	bashrc='~/.bashrc'
-	if [ -e $bashrc -a ! -L $bashrc ]
-	then
-		echo 'mv bashrc'
-		mv $bashrc ~/.bashrc_bu
-	elif [ -L $bashrc ]
-	then
-		echo 'already symlink'
-		return 0
-	fi
-
-	ln -s ./sh/bash/bashrc $bashrc
+is_exists() {
+    which "$1" >/dev/null 2>&1
+    return $?
 }
 
-set_zshrc()
-{
-	zshrc='~/.zshrc'
-	if [ -e $zshrc -a ! -L $zshrc ]
-	then
-		echo 'mv zshrc'
-		mv $zshrc ~/.zshrc_bu
-	elif [ -L $zshrc ]
-	then
-		echo 'already symlink'
-		return 0
-	fi
-
-	ln -s ./sh/zsh/zshrc $zshrc
+has() {
+    is_exists "$@"
 }
-set_vimrc
-set_bashrc
+
+die() {
+  echo "$1"
+  exit "${2:-1}"
+}
+
+
+# exec
+
+# install
+if has "git"; then
+  git clone --recursive "$GITHUB_URL" "$DOTPATH"
+else
+  die 'Required git'
+fi
+
+
+# symlink
+cd $DOTPATH/dots
+if [ $? -ne 0 ]; then
+    die "not found: $DOTPATH"
+fi
+
+
+for f in .??*
+do
+  ln -snfv "$DOTPATH/dots/$f" "$HOME/$f"
+done
+
+
+# re login
+exec $SHELL -l

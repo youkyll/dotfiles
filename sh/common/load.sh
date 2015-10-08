@@ -12,3 +12,8 @@ source "$HOME/google-cloud-sdk/path.zsh.inc"
 # The next line enables shell command completion for gcloud.
 source "/Users/yuki/google-cloud-sdk/completion.zsh.inc"
 
+export PATH="$HOME/local/bin:$PATH"
+
+# golang
+export GOPATH="$HOME/.go"
+export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"

@@ -6,6 +6,8 @@ filetype plugin indent on
 " 見やすくシンタックス
 syntax enable
 
+let mapleader = "\<Space>"
+
 " ----------------------------
 " Rule
 " ----------------------------
@@ -14,6 +16,11 @@ noremap ; :
 noremap ; :
 
 set backspace=eol,indent,start
+
+" 色
+if !has('gui_running')
+  set t_Co=256
+endif
 
 " 行番号をつける :set nonuでなしに
 set number
@@ -75,6 +82,9 @@ set tabstop=4
 set shiftwidth=4
 set noexpandtab
 set softtabstop=0
+
+" buffer
+set hidden
 
 
 " ----------------------------
@@ -153,9 +163,42 @@ let g:netrw_alto = 1
 
 
 " ----------------------------
-" Plugin Mapping
+" vimfiler
 " ----------------------------
 
+let g:vimfiler_as_default_explorer = 1
+autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
+" space fでvimfilerをトグル
+nnoremap <silent> <Space>f :<C-u>VimFilerCurrentDir -no-focus -split -simple -winwidth=25 -toggle -no-quit<CR>
+
+" ----------------------------
+" Plugin Mapping
+" ----------------------------
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+
+let g:unite_source_history_yank_enable = 1
+try
+  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+catch
+endtry
+" search a file in the filetree
+nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
+" reset not it is <C-l> normally
+:nnoremap <space>r <Plug>(unite_restart)
+
+"ag search binding
+" --- type ° to search the word in all files in the current dir
+nnoremap <space>A :Ag <c-r>=expand("<cword>")<cr><cr>
+nnoremap <space>a :Ag! 
 
 " ----------------------------
 " Plugin NeoBundle
@@ -180,25 +223,36 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " ----------------------------
 " NeoBundle Package
 " ----------------------------
-NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
 NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'itchyny/lightline.vim'
 " File編集履歴管理
 NeoBundle 'Shougo/neomru.vim'
 " Fileのツリー表示
-NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Shougo/vimfiler'
 " ag検索
 NeoBundle 'rking/ag.vim'
+
+NeoBundle 'kana/vim-submode'
+
+NeoBundle 'Shougo/vimproc.vim', {
+\'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
 "" Custom bundles
 
@@ -232,7 +286,6 @@ NeoBundle "tpope/vim-rails"
 NeoBundle "tpope/vim-rake"
 NeoBundle "tpope/vim-projectionist"
 NeoBundle "thoughtbot/vim-rspec"
-NeoBundle "majutsushi/tagbar"
 NeoBundle "ecomba/vim-ruby-refactoring"
 
 
@@ -256,3 +309,16 @@ NeoBundleCheck
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+
+
+" window
+
+call submode#enter_with('bufmove', 'n', '', '<C-w>>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', '<C-w><', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', '<C-w>+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', '<C-w>-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')

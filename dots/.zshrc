@@ -1,21 +1,16 @@
 . ~/dotfiles/sh/common/init.sh
 
-# vcs_infoロード
-autoload -Uz vcs_info
-# PROMPT変数内で変数参照する
+# git
 setopt prompt_subst
-
-# vcsの表示
-zstyle ':vcs_info:*' formats '[%F{blue}%b%f]'
-zstyle ':vcs_info:*' actionformats '[%F{blue}%b%f(%F{red}%a%f)]'
-# プロンプト表示直前にvcs_info呼び出し
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '%s : %F{green}%b%f'
+zstyle ':vcs_info:*' actionformats '%s : %F{green}%b%f(%F{red}%a%f)'
 precmd() { vcs_info }
-# プロンプト表示
+
+# prompt
+PROMPT='%F{green}%n@%m%f > %F{cyan}%~%f
+%?%# '
 RPROMPT='${vcs_info_msg_0_}'
-
-
-PROMPT='%F{green}%n@%m%f %F{yellow}%~%f
-%# '
 
 # completion
 autoload -U compinit
@@ -34,6 +29,15 @@ setopt COMPLETE_IN_WORD
 #setopt HUP
 
 # history
+export HISTFILE=${HOME}/.zsh_history
+# save in a mem
+export HISTSIZE=1000
+# save in a file
+export SAVEHIST=100000
+
+setopt HIST_IGNORE_DUPS
+setopt EXTENDED_HISTORY
+
 setopt APPEND_HISTORY
 # for sharing history between zsh processes
 setopt INC_APPEND_HISTORY

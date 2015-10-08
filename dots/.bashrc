@@ -1,6 +1,7 @@
 # .bashrc
 . ~/dotfiles/sh/common/init.sh
 
+
 #env variables
 export PAGER=less
 
@@ -11,7 +12,7 @@ if type stty > /dev/null 2>&1; then
 fi
 
 #git complete
-. ~/dotfiles/sh/bash/git-prompt.sh
+source "$HOME/dotfiles/sh/bash/git-prompt.sh"
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -34,3 +35,7 @@ HISTFILESIZE=10000
 HISTTIMEFORMAT='%m/%d %H:%M '
 HISTIGNORE=ls:la:ll:lla:history:h:pwd
 HISTCONTROL=ignoreboth
+# enhancd
+if [ -f "/home/imaiyu/.enhancd/bash/enhancd.bash" ]; then
+    source "/home/imaiyu/.enhancd/bash/enhancd.bash"
+fi
