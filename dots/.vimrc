@@ -177,6 +177,8 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
 
 " ----------------------------
 " Plugin NeoBundle
@@ -219,6 +221,8 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'rking/ag.vim'
 
 NeoBundle 'kana/vim-submode'
+
+NeoBundle 'vim-scripts/vim-auto-save'
 
 NeoBundle 'Shougo/vimproc.vim', {
 \'build' : {
