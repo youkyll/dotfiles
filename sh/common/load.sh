@@ -6,6 +6,12 @@ if [ `uname` = "Darwin" ]; then
   source $(brew --prefix nvm)/nvm.sh
 fi
 
+# The next line updates PATH for the Google Cloud SDK.
+source "$HOME/google-cloud-sdk/path.zsh.inc"
+
+# The next line enables shell command completion for gcloud.
+source "/Users/yuki/google-cloud-sdk/completion.zsh.inc"
+
 export PATH="$HOME/local/bin:$PATH"
 
 # golang

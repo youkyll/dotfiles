@@ -6,6 +6,8 @@ filetype plugin indent on
 " 見やすくシンタックス
 syntax enable
 
+let mapleader = "\<Space>"
+
 " ----------------------------
 " Rule
 " ----------------------------
@@ -80,6 +82,9 @@ set tabstop=4
 set shiftwidth=4
 set noexpandtab
 set softtabstop=0
+
+" buffer
+set hidden
 
 
 " ----------------------------
@@ -163,6 +168,7 @@ let g:netrw_alto = 1
 
 let g:vimfiler_as_default_explorer = 1
 autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
+" space fでvimfilerをトグル
 nnoremap <silent> <Space>f :<C-u>VimFilerCurrentDir -no-focus -split -simple -winwidth=25 -toggle -no-quit<CR>
 
 " ----------------------------
@@ -179,6 +185,22 @@ let g:lightline = {
 
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
+
+let g:unite_source_history_yank_enable = 1
+try
+  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+catch
+endtry
+" search a file in the filetree
+nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
+" reset not it is <C-l> normally
+:nnoremap <space>r <Plug>(unite_restart)
+
+"ag search binding
+" --- type ° to search the word in all files in the current dir
+nnoremap <space>A :Ag <c-r>=expand("<cword>")<cr><cr>
+nnoremap <space>a :Ag! 
 
 " ----------------------------
 " Plugin NeoBundle
@@ -211,6 +233,8 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'itchyny/lightline.vim'
 " File編集履歴管理
