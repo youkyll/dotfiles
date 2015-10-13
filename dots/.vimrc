@@ -292,7 +292,8 @@ NeoBundle "tpope/vim-projectionist"
 NeoBundle "thoughtbot/vim-rspec"
 NeoBundle "ecomba/vim-ruby-refactoring"
 
-
+"" My Bundle
+NeoBundle "youkyll/vim-set-autoindent"
 
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
