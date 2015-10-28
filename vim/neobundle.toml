@@ -1,0 +1,90 @@
+[[plugins]]
+repository = 'ctrlpvim/ctrlp.vim'
+[[plugins]]
+repository = 'tpope/vim-fugitive'
+[[plugins]]
+repository = 'vim-scripts/grep.vim'
+[[plugins]]
+repository = 'bronson/vim-trailing-whitespace'
+[[plugins]]
+repository = 'Shougo/vimshell'
+[[plugins]]
+repository = 'Shougo/unite.vim'
+[[plugins]]
+repository = 'Shougo/neocomplcache'
+[[plugins]]
+repository = 'Shougo/neosnippet'
+[[plugins]]
+repository = 'Shougo/neosnippet-snippets'
+[[plugins]]
+repository = 'jpalardy/vim-slime'
+[[plugins]]
+repository = 'itchyny/lightline.vim'
+[[plugins]]
+repository = 'Shougo/neomru.vim'
+[[plugins]]
+repository = 'Shougo/vimfiler'
+[[plugins]]
+repository = 'rking/ag.vim'
+[[plugins]]
+repository = 'kana/vim-submode'
+[[plugins]]
+repository = 'vim-scripts/vim-auto-save'
+[[plugins]]
+repository = 'Shougo/vimproc.vim'
+  [plugins.build]
+  windows = 'tools\\update-dll-mingw'
+  mac     = 'make -f make_mac.mak'
+  unix    = 'gmake'
+[[plugins]]
+repository = "scrooloose/syntastic"
+
+
+# html
+[[plugins]]
+repository = 'amirh/HTML-AutoCloseTag'
+[[plugins]]
+repository = 'hail2u/vim-css3-syntax'
+[[plugins]]
+repository = 'gorodinskiy/vim-coloresque'
+[[plugins]]
+repository = 'tpope/vim-haml'
+[[plugins]]
+repository = 'mattn/emmet-vim'
+
+
+# elixir
+[[plugins]]
+repository = 'elixir-lang/vim-elixir'
+[[plugins]]
+repository = 'carlosgaldino/elixir-snippets'
+
+
+# Go Lang Bundle
+[[plugins]]
+repository = "majutsushi/tagbar"
+[[plugins]]
+repository = "fatih/vim-go"
+
+
+# PHP Bundle
+[[plugins]]
+repository = 'arnaud-lb/vim-php-namespace'
+
+
+# Ruby Bundle
+[[plugins]]
+repository = "tpope/vim-rails"
+[[plugins]]
+repository = "tpope/vim-rake"
+[[plugins]]
+repository = "tpope/vim-projectionist"
+[[plugins]]
+repository = "thoughtbot/vim-rspec"
+[[plugins]]
+repository = "ecomba/vim-ruby-refactoring"
+
+
+# My Bundle
+[[plugins]]
+repository = "youkyll/vim-set-autoindent"

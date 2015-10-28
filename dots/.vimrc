@@ -211,102 +211,22 @@ if has('vim_starting')
     set nocompatible               " Be iMproved
   endif
 
-  " Required:
   set runtimepath+=~/dotfiles/vim/bundle/neobundle.vim/
 endif
 
-" Required:
 call neobundle#begin(expand('~/dotfiles/vim/bundle/'))
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+if neobundle#load_cache()
+  NeoBundleFetch 'Shougo/neobundle.vim'
 
-" ----------------------------
-" NeoBundle Package
-" ----------------------------
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'vim-scripts/grep.vim'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'itchyny/lightline.vim'
-" File編集履歴管理
-NeoBundle 'Shougo/neomru.vim'
-" Fileのツリー表示
-NeoBundle 'Shougo/vimfiler'
-" ag検索
-NeoBundle 'rking/ag.vim'
-
-NeoBundle 'kana/vim-submode'
-
-NeoBundle 'vim-scripts/vim-auto-save'
-
-NeoBundle 'Shougo/vimproc.vim', {
-\'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-
-"" Custom bundles
-
-"" Javascript Bundle
-NeoBundle "scrooloose/syntastic"
-
-
-"" HTML Bundle
-NeoBundle 'amirh/HTML-AutoCloseTag'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'mattn/emmet-vim'
-
-
-NeoBundle 'elixir-lang/vim-elixir'
-NeoBundle 'carlosgaldino/elixir-snippets'
-
-
-"" Go Lang Bundle
-NeoBundle "majutsushi/tagbar"
-NeoBundle "fatih/vim-go"
-
-
-"" PHP Bundle
-NeoBundle 'arnaud-lb/vim-php-namespace'
-
-
-"" Ruby Bundle
-NeoBundle "tpope/vim-rails"
-NeoBundle "tpope/vim-rake"
-NeoBundle "tpope/vim-projectionist"
-NeoBundle "thoughtbot/vim-rspec"
-NeoBundle "ecomba/vim-ruby-refactoring"
-
-"" My Bundle
-NeoBundle "youkyll/vim-set-autoindent"
-
-"" Include user's extra bundle
-if filereadable(expand("~/.vimrc.local.bundles"))
-  source ~/.vimrc.local.bundles
+  call neobundle#load_toml('~/dotfiles/vim/neobundle.toml', {'lazy': 1})
+  NeoBundleSaveCache
 endif
 
 call neobundle#end()
 
-" Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
 NeoBundleCheck
 
 
@@ -318,7 +238,6 @@ endif
 
 
 " window
-
 call submode#enter_with('bufmove', 'n', '', '<C-w>>', '<C-w>>')
 call submode#enter_with('bufmove', 'n', '', '<C-w><', '<C-w><')
 call submode#enter_with('bufmove', 'n', '', '<C-w>+', '<C-w>+')
