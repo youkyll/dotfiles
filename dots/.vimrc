@@ -1,3 +1,8 @@
+
+" load settings
+set runtimepath+=~/dotfiles/vim/
+runtime! conf.d/*.vim
+
 " ----------------------------
 " Basic
 " ----------------------------
@@ -11,9 +16,6 @@ let mapleader = "\<Space>"
 " ----------------------------
 " Rule
 " ----------------------------
-
-noremap ; :
-noremap ; :
 
 set backspace=eol,indent,start
 
@@ -80,8 +82,8 @@ set smartindent
 " tab
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
-set softtabstop=0
+set expandtab
+set softtabstop=4
 
 " buffer
 set hidden
@@ -148,101 +150,11 @@ set clipboard=unnamed
 " 挿入モードでCtrl+vを押すとクリップボードの内容を貼り付け
 imap <C-v> <ESC>"*pa
 
-" ----------------------------
-" netrw.vim
-" ----------------------------
-
-" netrwは常にtree view
-let g:netrw_liststyle = 3
-" CVSと.で始まるファイルは表示しない
-let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
-" 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
-let g:netrw_altv = 1
-" 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
-let g:netrw_alto = 1
 
 
-" ----------------------------
-" vimfiler
-" ----------------------------
-
-let g:vimfiler_as_default_explorer = 1
-autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
-" space fでvimfilerをトグル
-nnoremap <silent> <Space>f :<C-u>VimFilerCurrentDir -no-focus -split -simple -winwidth=25 -toggle -no-quit<CR>
-
-" ----------------------------
-" Plugin Mapping
-" ----------------------------
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
-
-let g:auto_save = 1
-let g:auto_save_in_insert_mode = 0
-
-let g:unite_source_history_yank_enable = 1
-try
-  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-catch
-endtry
-" search a file in the filetree
-nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
-" reset not it is <C-l> normally
-:nnoremap <space>r <Plug>(unite_restart)
-
-"ag search binding
-" --- type ° to search the word in all files in the current dir
-nnoremap <space>A :Ag <c-r>=expand("<cword>")<cr><cr>
-nnoremap <space>a :Ag! 
-
-" ----------------------------
-" Plugin NeoBundle
-" ----------------------------
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  set runtimepath+=~/dotfiles/vim/bundle/neobundle.vim/
-endif
-
-call neobundle#begin(expand('~/dotfiles/vim/bundle/'))
-
-if neobundle#load_cache()
-  NeoBundleFetch 'Shougo/neobundle.vim'
-
-  call neobundle#load_toml('~/dotfiles/vim/neobundle.toml', {'lazy': 1})
-  NeoBundleSaveCache
-endif
-
-call neobundle#end()
-
-filetype plugin indent on
-
-NeoBundleCheck
 
 
 "" Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
-
-
-" window
-call submode#enter_with('bufmove', 'n', '', '<C-w>>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', '<C-w><', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', '<C-w>+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', '<C-w>-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
