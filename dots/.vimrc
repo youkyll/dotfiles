@@ -92,6 +92,9 @@ set hidden
 " ----------------------------
 " Mapping
 " ----------------------------
+" syntasticチェックをおこなう
+
+nnoremap <Space>c :<C-u>SyntasticCheck<Enter>
 
 " vimrcを編集しやすくするバインド
 nnoremap <Space>.  :<C-u>edit $MYVIMRC<Enter>
