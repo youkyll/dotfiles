@@ -39,3 +39,6 @@ HISTCONTROL=ignoreboth
 if [ -f "/home/imaiyu/.enhancd/bash/enhancd.bash" ]; then
     source "/home/imaiyu/.enhancd/bash/enhancd.bash"
 fi
+
+export NVM_DIR="~/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
