@@ -31,12 +31,6 @@ repository = 'kana/vim-submode'
 [[plugins]]
 repository = 'vim-scripts/vim-auto-save'
 [[plugins]]
-repository = 'Shougo/vimproc.vim'
-  [plugins.build]
-  windows = 'tools\\update-dll-mingw'
-  mac     = 'make -f make_mac.mak'
-  unix    = 'gmake'
-[[plugins]]
 repository = "scrooloose/syntastic"
 
 
