@@ -3,7 +3,5 @@
 ## Installation
 
 ```
- curl -L raw.github.com/youkyll/dotfiles/master/bin/setup.sh | sh
+ curl -L http://dotfiles.youkyll.com | sh
 ```
-
-
