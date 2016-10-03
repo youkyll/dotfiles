@@ -30,9 +30,6 @@ repository = 'rking/ag.vim'
 repository = 'kana/vim-submode'
 [[plugins]]
 repository = 'vim-scripts/vim-auto-save'
-[[plugins]]
-repository = "scrooloose/syntastic"
-
 
 # html
 [[plugins]]
