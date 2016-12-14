@@ -5,9 +5,5 @@
 
 # use tmux
 if [ -z $TMUX ]; then
-  if $(tmux has-session); then
-    tmux attach
-  else
-    tmux
-  fi
+  tmux attach || tmux new-session \; source-file ~/dotfiles/tmux/split_4
 fi

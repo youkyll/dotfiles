@@ -58,3 +58,13 @@ LISTMAX=0
 
 # disable mail checking
 MAILCHECK=0
+
+export NVM_DIR="/Users/y_imai/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
+
+export EDITOR=vim
+eval "$(direnv hook zsh)"

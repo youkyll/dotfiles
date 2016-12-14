@@ -20,7 +20,6 @@ alias md='mkdir -p'
 alias rd='rmdir'
 
 #other aliases
-alias t='date'
 alias c='clear'
 alias q='exit'
 alias h='history -fd'
@@ -47,3 +46,4 @@ alias gre='git reset'
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
+alias tmuxrc='vim ~/.tmux.conf'
