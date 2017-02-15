@@ -7,4 +7,3 @@ composer.lock
 .env
 /vendor
 /node_modules
-tags
