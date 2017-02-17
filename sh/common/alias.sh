@@ -1,8 +1,5 @@
 #alias
 
-#super user
-alias _="sudo"
-
 #list directory
 alias ls='ls -G'        # Compact view, show colors
 alias la='ls -AF'       # Compact view, show hidden
@@ -47,3 +44,11 @@ alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
 alias tmuxrc='vim ~/.tmux.conf'
+
+# docker
+alias dc='docker-compose'
+
+
+# ruby
+alias b='bundle'
+alias bu='bundle update'
