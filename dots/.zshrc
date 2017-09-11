@@ -25,6 +25,7 @@ setopt auto_cd
 setopt autopushd
 setopt pushd_ignore_dups
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
+cdpath=(~/Develop ~/Develop/project)
 
 
 #allow tab completion in the middle of a word
