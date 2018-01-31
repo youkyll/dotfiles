@@ -15,7 +15,6 @@ export PATH="$HOME/local/bin:$PATH"
 export GOPATH="$HOME/.go"
 export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
-echo 'stop'
 # ruby
 [[ -d ~/.rbenv  ]] && \
   export PATH=${HOME}/.rbenv/bin:${PATH} && \
