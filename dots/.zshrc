@@ -8,7 +8,7 @@ zstyle ':vcs_info:*' actionformats '%s : %F{green}%b%f(%F{red}%a%f)'
 precmd() { vcs_info }
 
 # prompt
-PROMPT='%F{green}%n@%m%f > %F{cyan}%~%f
+PROMPT='%F{green}%m%f > %F{cyan}%~%f
 %?%# '
 RPROMPT='${vcs_info_msg_0_}'
 
