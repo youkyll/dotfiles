@@ -11,6 +11,7 @@ alias l1='ls -1'
 alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories
 alias ....='cd ../../..' # Go up three directories
+alias cdd='~/dotfiles'   # Go dotfiles dir
 
 # Directory
 alias md='mkdir -p'
@@ -47,7 +48,7 @@ alias tmuxrc='vim ~/.tmux.conf'
 
 # docker
 alias dc='docker-compose'
-
+alias k='kubectl'
 
 # ruby
 alias b='bundle'
