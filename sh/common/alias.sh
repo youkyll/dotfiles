@@ -39,6 +39,7 @@ alias gmv='git mv'
 alias grm='git rm'
 alias grmc='git rm --cached'
 alias gre='git reset'
+alias gp='git push oirigin'
 
 #edit alias
 alias bashrc='vim ~/.bashrc'
