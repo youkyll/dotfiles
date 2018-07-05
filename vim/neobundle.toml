@@ -79,3 +79,7 @@ repository = "ecomba/vim-ruby-refactoring"
 # My Bundle
 [[plugins]]
 repository = "youkyll/vim-set-autoindent"
+
+# Graphql
+[[plugins]]
+repository = "jparise/vim-graphql"
