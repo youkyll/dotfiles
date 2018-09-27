@@ -8,7 +8,8 @@ MANPATH=${NVM_DIR:-$HOME/.nvm}/default/share/man:$MANPATH
 export NODE_PATH=${NVM_DIR:-$HOME/.nvm}/default/lib/node_modules
 NODE_PATH=${NODE_PATH:A}
 source "$HOME/dotfiles/sh/lib/nvm.sh"
-source ~/.gvm/scripts/gvm
+
+# source ~/.gvm/scripts/gvm
 
 export PATH="$HOME/local/bin:$PATH"
 
