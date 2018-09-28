@@ -33,8 +33,6 @@ repository = 'vim-scripts/vim-auto-save'
 
 # html
 [[plugins]]
-repository = 'amirh/HTML-AutoCloseTag'
-[[plugins]]
 repository = 'hail2u/vim-css3-syntax'
 [[plugins]]
 repository = 'gorodinskiy/vim-coloresque'
