@@ -55,3 +55,7 @@ alias k='kubectl'
 # ruby
 alias b='bundle'
 alias bu='bundle update'
+
+# react native
+alias rni='react-native run-ios'
+alias rna='react-native run-android'
