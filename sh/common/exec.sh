@@ -4,6 +4,6 @@
 [ -z "$PS1" ] && return
 
 # use tmux
-if [ -z $TMUX ]; then
-  tmux attach || tmux new-session \; source-file ~/dotfiles/tmux/split_4
-fi
+# if [ -z $TMUX ]; then
+#  tmux attach || tmux new-session \; source-file ~/dotfiles/tmux/split_4
+# fi
