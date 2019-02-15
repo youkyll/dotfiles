@@ -3,13 +3,8 @@
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # nvm
-PATH=${NVM_DIR:-$HOME/.nvm}/default/bin:$PATH
-MANPATH=${NVM_DIR:-$HOME/.nvm}/default/share/man:$MANPATH
-export NODE_PATH=${NVM_DIR:-$HOME/.nvm}/default/lib/node_modules
-NODE_PATH=${NODE_PATH:A}
-source "$HOME/dotfiles/sh/lib/nvm.sh"
-
-# source ~/.gvm/scripts/gvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 export PATH="$HOME/local/bin:$PATH"
 
