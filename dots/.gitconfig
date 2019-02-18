@@ -1,14 +1,15 @@
 [include]
-	path = .gitconfig.local
+	path=.gitconfig.local
 [user]
-	name = youkyll
-	email = yuuki08180102@gmail.com
+	name=youkyll
+	email=yuuki08180102@gmail.com
 [core]
-	excludesfile = ~/dotfiles/git/gitignore
-	editor = vim
+	excludesfile=~/dotfiles/git/gitignore
+	editor=vim
+  ignorecase=false
 [color]
-	ui = auto
+	ui=auto
 [grep]
-	lineNumber = true
+	lineNumber=true
 [push]
-	default = current
+	default=current
