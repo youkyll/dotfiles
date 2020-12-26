@@ -81,3 +81,7 @@ repository = "youkyll/vim-set-autoindent"
 # Graphql
 [[plugins]]
 repository = "jparise/vim-graphql"
+
+# js
+[[plugins]]
+repository = "leafgarland/typescript-vim"

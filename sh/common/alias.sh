@@ -1,4 +1,7 @@
 #alias
+title() {
+    echo -ne "\033]0;"$*"\007"
+}
 
 #list directory
 alias ls='ls -G'        # Compact view, show colors
@@ -22,7 +25,7 @@ alias c='clear'
 alias q='exit'
 alias h='history -fd'
 
-#git aliases
+#git
 alias g='git'
 alias gs='git status'
 alias ga='git add'
@@ -43,7 +46,10 @@ alias gre='git reset'
 alias gp='git push origin'
 alias gf='git fetch -p'
 
-#edit alias
+# hub
+alias hpr='hub pull-request'
+
+# editor
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'

@@ -2,6 +2,10 @@
 
 export PLATFORM
 
+title() {
+  echo -ne "\033]0;"$*"\007"
+}
+
 has() {
     which "$1" >/dev/null 2>&1
     return $?
