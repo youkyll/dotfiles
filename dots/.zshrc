@@ -69,6 +69,8 @@ fi
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 GOOGLE_CLOUD_SDK_PATH='/usr/local/bin/google-cloud-sdk'
 
+export PATH="/opt/homebrew/bin:$PATH"
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/path.zsh.inc' ]; then . '/usr/local/bin/google-cloud-sdk/path.zsh.inc'; fi
