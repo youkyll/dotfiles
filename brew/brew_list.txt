@@ -1,0 +1,7 @@
+autoconf
+cmake
+direnv
+hub
+llvm
+openssl@1.1
+the_platinum_searcher
